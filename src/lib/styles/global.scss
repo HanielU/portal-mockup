@@ -1,0 +1,68 @@
+@mixin flex($justify: center, $align: center) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin min-width($min-width) {
+	%bg-w-shadow {
+		width: 100%;
+		padding: 30px;
+		background: white;
+		box-shadow: 0px 0px 16px rgba(#dcdee4, 0.7);
+		border-radius: 16px;
+		margin-bottom: 30px;
+	}
+
+	@media screen and (min-width: $min-width) {
+		@content;
+	}
+}
+
+// sets the light theme properties for the parent element that uses this mixin
+@mixin dark-theme {
+	:global([data-theme="dark"]) & {
+		@content;
+	}
+}
+
+@mixin outline($color: red) {
+	outline: 1px solid $color;
+	*:not(svg, svg > *) {
+		outline: 1px solid $color;
+	}
+}
+
+%no-highlight {
+	-webkit-tap-highlight-color: transparent;
+}
+
+@mixin bg-w-shadow {
+	width: 100%;
+	padding: 30px;
+	background: white;
+	box-shadow: 0px 0px 16px rgba(#dcdee4, 0.7);
+	border-radius: 16px;
+	margin-bottom: 30px;
+}
+
+@mixin scrollbar($color: #e8e8e8) {
+	// firefox scrollbar
+	scrollbar-color: $color #fff !important;
+	scrollbar-width: thin;
+
+	/* & > :global(*) {
+		white-space: pre-wrap;
+		overflow-wrap: break-word;
+	} */
+
+	/* Non firefox */
+	&::-webkit-scrollbar {
+		width: 0.1rem;
+		margin-left: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $color;
+	}
+}
