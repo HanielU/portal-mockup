@@ -1,18 +1,24 @@
 <script lang="ts">
 	import stats from "$lib/dummydata/quickstats";
+	import {
+		IconCurrent,
+		IconFailed,
+		IconPassed,
+		IconRegistered,
+	} from "$lib/components/exports";
+	const icons = [IconRegistered, IconPassed, IconFailed, IconCurrent];
 </script>
 
 <section>
-	{#each stats as stat}
+	{#each stats as stat, i}
 		<div class="stat">
 			<div class="stat__details">
 				<p>{stat.title}</p>
 				<h2>{stat.number}</h2>
 			</div>
 
-			<div class="stat__icon">
-				<!--  -->
-			</div>
+			<!--icon component  -->
+			<svelte:component this={icons[i]} />
 		</div>
 	{/each}
 </section>
@@ -44,11 +50,11 @@
 			}
 		}
 
-		&__icon {
-			padding: 20px;
-			border-radius: 1000px;
-			background: var(--gray-100);
-		}
+		// &__icon {
+		// 	padding: 20px;
+		// 	border-radius: 1000px;
+		// 	background: var(--gray-100);
+		// }
 	}
 
 	@include min-width(727px) {

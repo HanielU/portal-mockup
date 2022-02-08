@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { Chart, ChartConfiguration, registerables } from "chart.js";
+	import { Chart, registerables } from "chart.js";
 	import randomColor from "randomcolor";
-	import chroma from "chroma-js";
 	import { hexToRGBA, ogBD, ogBG } from "$lib/utils/helpers";
 
 	const opacity = (hexColors: string[], opacity = 1) =>
@@ -16,16 +15,6 @@
 		hue: "red",
 		luminosity: "light",
 	});
-
-	// chroma will use these colors to create a nice scale to transition between the colors
-	const chromaScaleColors = [
-		randomColor({ hue: "red", luminosity: "light" }),
-		randomColor({ hue: "blue", luminosity: "light" }),
-		randomColor({ hue: "pink", luminosity: "bright" }),
-		randomColor({ hue: "purple", luminosity: "light" }),
-	];
-	const rColors = chroma.scale(chromaScaleColors).colors(labels.length);
-	console.log(rColors);
 
 	// maybe implement random color generator for the bar chart lines background
 	const data = {
@@ -85,11 +74,11 @@
 			border-bottom: 1px solid var(--border-color);
 
 			h2 {
-				font-size: var(--font-size-mid);
+				font-size: var(--fs-mid);
 				font-weight: 500;
 			}
 			p {
-				font-size: var(--font-size-smallest);
+				font-size: var(--fs-smallest);
 				font-weight: 300;
 			}
 		}
@@ -98,5 +87,9 @@
 	.chart {
 		padding: 20px;
 		height: 400px;
+
+		@include min-width(727px) {
+			padding: 20px 60px;
+		}
 	}
 </style>

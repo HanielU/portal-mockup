@@ -23,11 +23,11 @@
 				margin-bottom: 20px;
 			}
 			&__title {
-				font-size: var(--font-size-smallest);
+				font-size: var(--fs-smallest);
 				font-weight: 500;
 			}
 			&__value {
-				font-size: var(--font-size-small);
+				font-size: var(--fs-small);
 				font-weight: 700;
 			}
 		}

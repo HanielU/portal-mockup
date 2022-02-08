@@ -5,3 +5,7 @@ export { default as DailyTimeTable } from "./dashboard/DailySchedule.svelte";
 export { default as Select } from "./utils/CustomSelect.svelte";
 export { default as StudentPerformanceGraph } from "./dashboard/PerformanceGraph.svelte";
 export { default as StudentDetails } from "./dashboard/StudentDetails.svelte";
+export { default as IconCurrent } from "./icons/Current.svelte";
+export { default as IconFailed } from "./icons/Failed.svelte";
+export { default as IconPassed } from "./icons/Passed.svelte";
+export { default as IconRegistered } from "./icons/Registered.svelte";
